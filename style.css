@@ -57,7 +57,7 @@ nav > button > span {
     display: grid;
     padding: 1rem;
     grid-gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, min(310.5px));
 
     .item {
         box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
