@@ -20,31 +20,28 @@
             </button>
         </nav>
 
-        <div class="container hidden">
+        <div class="container">
             <div class="item">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, molestias!
             </div>
         </div>
     </div>
 
-    <div id="form-container">
-        <form id="form">
-            <div>Add a Book to Stack</div>
-            <input type="text" id="name" name="name" required>
-            <input type="text" id="author" name="author" required>
-            <input type="number" id="lastpage" name="lastpage" required>
-            <div>
-                <label><form action="finished">Finished reading?</form></label>
-                <input type="checkbox" id="finished" name="finished" required> 
-            </div>
-            
-            <div>
-                <input type="reset" id="reset">
-                <input type="submit" id="submit">
-            </div>
-        </form>
-    </div>
+    <form class="form hidden">
+        <div id="form-title">Add a Book to Stack</div>
+        <input type="text" id="name" name="name" placeholder="Book Name" required>
+        <input type="text" id="author" name="author" placeholder="Author" required>
+        <input type="number" id="lastpage" name="lastpage" placeholder="Last Page Read" required>
+        <fieldset>
+            <label>Finished reading?</label>
+            <input type="checkbox" id="finished" name="finished" required>
+        </fieldset>
+        <fieldset>
+            <button id="form-cancel" class="form-buttons">Cancel</button>
+            <input class="form-buttons" type="reset" id="reset">
+            <input class="form-buttons" type="submit" id="submit">
+        </fieldset> 
+    </form>
 
-    
 </body>
 </html>

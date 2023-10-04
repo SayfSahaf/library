@@ -1,6 +1,7 @@
 const add_button = document.getElementById("add-btn");
 const main = document.getElementById("main");
 const container = document.querySelector(".container");
+const form = document.querySelector(".form");
 
 const book_stack = [];
 
@@ -26,6 +27,8 @@ function remove_book(Book) {
 
 add_button.addEventListener('click', function () {
     main.classList.toggle("blur");
-    container.classList.toggle("hidden")
+    container.classList.toggle("hidden");
+    form.classList.toggle("hidden");
+
 })
 
