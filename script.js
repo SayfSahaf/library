@@ -1,7 +1,8 @@
 const add_button = document.getElementById("add-btn");
 const main = document.getElementById("main");
 const container = document.querySelector(".container");
-const form = document.querySelector(".form");
+const pageform = document.querySelector(".form");
+const form_cancel_button = document.getElementById("form-cancel");
 
 const book_stack = [];
 
@@ -23,12 +24,16 @@ function remove_book(Book) {
     book_stack = book_stack.filter(item => item !== Book);
 }
 
-
+form_cancel_button.addEventListener('click', function() {
+    main.classList.toggle("blur");
+    container.classList.toggle("hidden");
+    pageform.classList.toggle("hidden");
+}) 
 
 add_button.addEventListener('click', function () {
     main.classList.toggle("blur");
     container.classList.toggle("hidden");
-    form.classList.toggle("hidden");
+    pageform.classList.toggle("hidden");
 
 })
 

@@ -107,7 +107,11 @@ fieldset > .form-buttons {
     border-radius: 0.3rem;
 }
 
-
+fieldset > .form-buttons:hover {
+    background-color: #642682;
+    color: #e5dee7;
+    transition: 300ms ease;
+}
 
 
 .blur {
