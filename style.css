@@ -62,9 +62,13 @@ nav > button > span {
     grid-template-columns: repeat(auto-fit, min(310.5px));
 
     .item {
-        box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+        border: solid 0.5px #642682;
         border-radius: 0.3rem;
         padding: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
     }
     
 }
@@ -89,10 +93,6 @@ nav > button > span {
 
 .form > input {
     border: solid 0.5px #642682;
-}
-
-fieldset > label {
-    background: none;
 }
 
 form > fieldset {
