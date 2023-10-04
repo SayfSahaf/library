@@ -3,6 +3,7 @@
     background-color: #f6f3f6;
 }
 
+
 nav {
     display: flex;
     flex-direction: row;
@@ -65,4 +66,8 @@ nav > button > span {
         padding: 1.2rem;
     }
     
+}
+
+.blur {
+    filter: blur(0.2rem);
 }
