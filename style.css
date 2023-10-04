@@ -68,6 +68,12 @@ nav > button > span {
     
 }
 
+
+
 .blur {
     filter: blur(0.2rem);
+}
+
+.hidden {
+    display: none;
 }
