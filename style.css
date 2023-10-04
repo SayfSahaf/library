@@ -59,7 +59,7 @@ nav > button > span {
     display: grid;
     padding: 1rem;
     grid-gap: 2rem;
-    grid-template-columns: repeat(auto-fit, min(310.5px));
+    grid-template-columns: repeat(auto-fit, minmax(230px, 310.5px));
 
     .item {
         border: solid 0.5px #642682;
@@ -88,7 +88,7 @@ nav > button > span {
 }
 
 .form > div, .form > input, .form-buttons {
-    margin: 1rem;
+    margin: 0.6rem;
 }
 
 .form > input {
@@ -98,6 +98,9 @@ nav > button > span {
 form > fieldset {
     border: none;
     background: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 fieldset > .form-buttons {
