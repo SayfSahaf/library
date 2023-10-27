@@ -59,7 +59,7 @@ nav > button > span {
     display: grid;
     padding: 1rem;
     grid-gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 310.5px));
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
 
     .item {
         border: solid 0.5px #642682;
@@ -73,13 +73,21 @@ nav > button > span {
     
 }
 
-.form {
+dialog {
     border: solid 0.5px #642682;
+    background-color: #e5dee7;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0,5);
+    backdrop-filter: blur(0.2rem);
+}
+
+.form { 
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #e5dee7;
-    width: fit-content;
     margin: auto;
 
     #form-title{
@@ -114,11 +122,6 @@ fieldset > .form-buttons:hover {
     background-color: #642682;
     color: #e5dee7;
     transition: 300ms ease;
-}
-
-
-.blur {
-    filter: blur(0.2rem);
 }
 
 .hidden {

@@ -3,17 +3,14 @@ const main = document.getElementById("main");
 const container = document.querySelector(".container");
 const pageform = document.querySelector(".form");
 const form_cancel_button = document.getElementById("form-cancel");
+const modal = document.querySelector("[data-modal]")
 
 
 const book_stack = [];
 
-function Book(name, author, lastpage) {
+function Book(name, author) {
     this.name = name;
     this.author = author;
-    this.lastpage = lastpage;
-    this.change_page = function(new_page) {
-        this.lastpage = new_page;
-    }
 }
 
 function add_book(Book) {
@@ -25,20 +22,27 @@ function remove_book(Book) {
 }
 
 form_cancel_button.addEventListener('click', function() {
-    main.classList.toggle("blur");
-    if (book_stack.length > 0) {
-        container.classList.toggle("hidden"); 
-    }
-    pageform.classList.toggle("hidden");
+    document.getElementById("name").value = "";
+    document.getElementById("author").value = "";
+    modal.close()
 }) 
 
-add_button.addEventListener('click', function () {
-    main.classList.toggle("blur");
-    if (book_stack.length > 0) {
-        container.classList.toggle("hidden"); 
+modal.addEventListener('click', e => {
+    const dialogDimensions = modal.getBoundingClientRect()
+    if (
+        e.clientX < dialogDimensions.left ||
+        e.clientX > dialogDimensions.right ||
+        e.clientY < dialogDimensions.top ||
+        e.clientY > dialogDimensions.bottom
+    ) {
+        document.getElementById("name").value = "";
+        document.getElementById("author").value = "";
+        modal.close()
     }
-    pageform.classList.toggle("hidden");
+})
 
+add_button.addEventListener('click', function () {
+    modal.showModal();
 })
 
 pageform.addEventListener('submit', function(event) {
@@ -46,11 +50,11 @@ pageform.addEventListener('submit', function(event) {
 
     const form_name = document.getElementById("name").value;
     const form_author = document.getElementById("author").value;
-    const form_lastpage = document.getElementById("lastpage").value;
 
-    const book = new Book(form_name, form_author, form_lastpage);
+    const book = new Book(form_name, form_author);
 
     book_stack.push(book);
+    console.log(book_stack)
 
     const new_element = document.createElement("div");
     new_element.classList.add("item");
@@ -59,21 +63,20 @@ pageform.addEventListener('submit', function(event) {
         new_element.innerHTML = `
             <div>${book_stack[i].name}</div>
             <div>By: ${book_stack[i].author}</div>
-            <div>Stopped at: ${book_stack[i].lastpage}</div>
         `;
 
         container.appendChild(new_element);
     }
 
-    main.classList.toggle("blur");
     if (book_stack.length > 0) {
-        container.classList.toggle("hidden"); 
+        if (container.classList.contains("hidden")) {
+            container.classList.remove("hidden")
+        }
     }
-    pageform.classList.toggle("hidden");
 
     document.getElementById("name").value = "";
     document.getElementById("author").value = "";
-    document.getElementById("lastpage").value = "";
-    document.getElementById("finished").value = "";
+
+    modal.close();
 
 })

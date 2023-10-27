@@ -24,18 +24,19 @@
             
         </div>
     </div>
-
-    <form class="form hidden">
-        <div id="form-title">Add a Book to Stack</div>
-        <input type="text" id="name" name="name" placeholder="Book Name" required>
-        <input type="text" id="author" name="author" placeholder="Author" required>
-        <input type="number" id="lastpage" name="lastpage" placeholder="Last Page Read" required>
-        <fieldset>
-            <button id="form-cancel" class="form-buttons">Cancel</button>
-            <input class="form-buttons" type="reset" id="reset">
-            <input class="form-buttons" type="submit" id="submit">
-        </fieldset> 
-    </form>
+    <dialog data-modal>
+        <form class="form">
+            <div id="form-title">Add a Book to Stack</div>
+            <input type="text" id="name" name="name" placeholder="Book Name" required>
+            <input type="text" id="author" name="author" placeholder="Author" required>
+            <fieldset>
+                <button id="form-cancel" class="form-buttons">Cancel</button>
+                <input class="form-buttons" type="reset" id="reset">
+                <input class="form-buttons" type="submit" id="submit">
+            </fieldset> 
+        </form>
+    </dialog>
+    
 
 </body>
 </html>
