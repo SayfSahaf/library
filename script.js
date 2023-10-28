@@ -3,10 +3,10 @@ const main = document.getElementById("main");
 const container = document.querySelector(".container");
 const pageform = document.querySelector(".form");
 const form_cancel_button = document.getElementById("form-cancel");
-const modal = document.querySelector("[data-modal]")
+const modal = document.querySelector("[data-modal]");
 
 
-const book_stack = [];
+let book_stack = [];
 
 function Book(name, author) {
     this.name = name;
@@ -17,8 +17,41 @@ function add_book(Book) {
     book_stack.push(Book);
 }
 
-function remove_book(Book) {
-    book_stack = book_stack.filter(item => item !== Book);
+function remove_book(btn) {
+    container.innerHTML = '';
+    const temp = book_stack.find(obj => obj.name == `${btn.getAttribute('data-value')}`);
+    book_stack = book_stack.filter(item => item !== temp);
+    display_books();
+    if (book_stack.length == 0) {
+        container.classList.add("hidden")
+    }
+}
+
+function display_books() {
+    book_stack.forEach(book => {
+
+    const new_element = document.createElement("div");
+    new_element.classList.add("item");
+
+    new_element.innerHTML = `
+        <div>${book.name}</div>
+        <div id="item-author">${book.author}</div>
+    `;
+
+    const rm_btn = document.createElement("button")
+    rm_btn.textContent = "Remove"
+
+    rm_btn.setAttribute('data-value', `${book.name}`)
+    rm_btn.setAttribute('class', 'rm_btn')
+
+    rm_btn.addEventListener('click', e => {
+        remove_book(rm_btn);
+    })
+
+    new_element.appendChild(rm_btn);
+    container.appendChild(new_element);
+    })
+
 }
 
 form_cancel_button.addEventListener('click', function() {
@@ -47,33 +80,18 @@ add_button.addEventListener('click', function () {
 
 pageform.addEventListener('submit', function(event) {
     event.preventDefault();
-
-    const form_name = document.getElementById("name").value;
-    const form_author = document.getElementById("author").value;
-
-    const book = new Book(form_name, form_author);
-
+    container.innerHTML = '';
+    const book = new Book(document.getElementById("name").value, document.getElementById("author").value);
     book_stack.push(book);
-    console.log(book_stack)
-
-    const new_element = document.createElement("div");
-    new_element.classList.add("item");
-    for (i = 0; i < book_stack.length; i++ ) {
-        
-        new_element.innerHTML = `
-            <div>${book_stack[i].name}</div>
-            <div>By: ${book_stack[i].author}</div>
-        `;
-
-        container.appendChild(new_element);
-    }
+    
+    display_books()
 
     if (book_stack.length > 0) {
         if (container.classList.contains("hidden")) {
             container.classList.remove("hidden")
         }
-    }
-
+    }    
+    
     document.getElementById("name").value = "";
     document.getElementById("author").value = "";
 

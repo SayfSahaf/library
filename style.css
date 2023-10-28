@@ -73,6 +73,27 @@ nav > button > span {
     
 }
 
+#item-author {
+    color: #706d74;
+    font-style: italic;
+}
+
+.rm_btn {
+    background-color: #e5dee7;
+    margin-top: 1.4rem;
+    width: 7rem;
+    height: 2rem;
+    border-radius: 0.3rem;
+    border: solid 0.5px #642682;
+}
+
+.rm_btn:hover {
+    background-color: #b64c49;
+    color: #f7f7f8;
+    border: solid 0.5px black;
+    transition: 300ms ease;
+}
+
 dialog {
     border: solid 0.5px #642682;
     background-color: #e5dee7;
