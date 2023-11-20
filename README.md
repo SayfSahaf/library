@@ -1,5 +1,4 @@
 # stack
-[Link to the web app](https://sayfsahaf.github.io/stack/)
 
 I have made this simple web app to practice object-oriented programming principles in Javascript.
 
